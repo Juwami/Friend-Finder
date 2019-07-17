@@ -6,7 +6,7 @@ exports = function(app) {
         res.json()
     })
 
-    app.post("/apifriends", function(res, req) {
+    app.post("/api/friends", function(res, req) {
 
     })
 }
