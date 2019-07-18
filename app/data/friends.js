@@ -8,7 +8,7 @@ let friends = [
     }
 ];
 
-exports = friends;
+module.exports = friends;
 
 // Lana Rhoades
 // Janice Griffith
