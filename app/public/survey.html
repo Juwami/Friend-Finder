@@ -23,17 +23,17 @@
         <form>
             <section class="mb-2 mt-1">
                 <p class="mb-2">Name (Required)</p>
-                <input type="text" id="name" class="col-12 rounded">
+                <input type="text" id="nameInput" class="col-12 rounded">
             </section>
             <section class="mb-2 mt-1">
                 <p class="mb-2">Link To Photo Image (Required)</p>
-                <input type="text" id="photo" class="col-12 rounded">
+                <input type="text" id="photoInput" class="col-12 rounded">
             </section>
             <hr>
             <div class="mb-3">
                 <h5>Question 1</h5>
                 <p>I make friends easily.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -45,7 +45,7 @@
             <div class="mb-3">
                 <h5>Question 2</h5>
                 <p>I believe in the importance of art.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -57,7 +57,7 @@
             <div class="mb-3">
                 <h5>Question 3</h5>
                 <p>I experience my emotions intensely.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -69,7 +69,7 @@
             <div class="mb-3">
                 <h5>Question 4</h5>
                 <p>I like to solve complex problems.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -81,7 +81,7 @@
             <div class="mb-3">
                 <h5>Question 5</h5>
                 <p>I panic easily.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -93,7 +93,7 @@
             <div class="mb-3">
                 <h5>Question 6</h5>
                 <p>I am easy to satisfy.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -105,7 +105,7 @@
             <div class="mb-3">
                 <h5>Question 7</h5>
                 <p>I complete tasks successfully.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -117,7 +117,7 @@
             <div class="mb-3">
                 <h5>Question 8</h5>
                 <p>I warm up quickly to others.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -129,7 +129,7 @@
             <div class="mb-3">
                 <h5>Question 9</h5>
                 <p>I like to visit new places.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -141,7 +141,7 @@
             <div class="mb-3">
                 <h5>Question 10</h5>
                 <p>I dislike talking about myself.</p>
-                <select class="rounded">
+                <select class="rounded surveyAnswer">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -173,12 +173,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-   
-   <script>
 
-       
-   
-   </script>
+    <script>
+        document.getElementById("submitBtn").onclick = function () {
+            let name = document.getElementById("nameInput").value.trim();
+            let photo = document.getElementById("photoInput").value.trim();
+            let responses = document.getElementsByClassName("surveyAnswer");
+
+            let answers = Array.from(responses.option).map(function(option) {
+                option.value
+            })
+
+            console.log(answers)
+
+            // if (name === "" || photo === "") {
+            //     alert("Fields are empty. Finish the survey.")
+            // }
+        }
+    </script>
 
 </body>
 
