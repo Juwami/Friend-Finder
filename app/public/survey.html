@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -151,7 +154,7 @@
                 </select>
             </div>
             <hr>
-            <input type="submit" class="button btn-primary btn-lg rounded col-12" id="submitBtn" formmethod="POST" href="/api/friends">
+            <input type="submit" class="button btn-primary btn-lg rounded col-12" id="submitBtn">
         </form>
 
         <footer class="row mt-3">
@@ -161,6 +164,55 @@
         </footer>
 
     </main>
+
+    <script>
+        $("#submitBtn").click(function () {
+            let profile = {}
+            let answers = [];
+
+            let name = $("#nameInput").val();
+            let photo = $("#photoInput").val();
+            let q1 = $("#questionOne").val();
+            let q2 = $("#questionTwo").val();
+            let q3 = $("#questionThree").val();
+            let q4 = $("#questionFour").val();
+            let q5 = $("#questionFive").val();
+            let q6 = $("#questionSix").val();
+            let q7 = $("#questionSeven").val();
+            let q8 = $("#questionEight").val();
+            let q9 = $("#questionNine").val();
+            let q10 = $("#questionTen").val();
+
+            console.log(name)
+            console.log(photo)
+
+            answers.push(q1);
+            answers.push(q2);
+            answers.push(q3);
+            answers.push(q4);
+            answers.push(q5);
+            answers.push(q6);
+            answers.push(q7);
+            answers.push(q8);
+            answers.push(q9);
+            answers.push(q10);
+
+            console.log(answers)
+
+            profile.name = name;
+            profile.photo = photo;
+            profile.answers = answers;
+
+            console.log(profile)
+
+            $.post("/api/friends", profile, function(inputs) {
+                // console.log(inputs)
+                console.log("Let's crunch some numbers")
+            })
+
+        })
+    </script>
+
 
 </body>
 
