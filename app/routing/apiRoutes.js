@@ -10,7 +10,5 @@ module.exports = function (app) {
         friends.push(req.body);
     });
 
-    document.getElementById("submitBtn").onclick = function() {
-        console.log("clicked")
-    }
+    
 };
