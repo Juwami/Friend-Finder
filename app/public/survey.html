@@ -167,6 +167,7 @@
 
     <script>
         $("#submitBtn").click(function () {
+
             let profile = {}
             let answers = [];
 
@@ -182,6 +183,10 @@
             let q8 = $("#questionEight").val();
             let q9 = $("#questionNine").val();
             let q10 = $("#questionTen").val();
+
+            if (name === "" || photo === "") {
+                alert("Insufficient Data")
+            }
 
             console.log(name)
             console.log(photo)
@@ -201,13 +206,15 @@
 
             profile.name = name;
             profile.photo = photo;
-            profile.answers = answers;
+            profile.scores = answers;
 
             console.log(profile)
 
-            $.post("/api/friends", profile, function(inputs) {
-                // console.log(inputs)
-                console.log("Let's crunch some numbers")
+            $.post("/api/friends", profile, function (response) {
+                
+                if (response) {
+                    
+                }
             })
 
         })
