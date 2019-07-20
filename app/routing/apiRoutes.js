@@ -11,29 +11,31 @@ module.exports = function (app) {
         let user = req.body
         let bestMatch = null;
         let highScore = 0;
-        
+
         // Console what was inputed
         // console.log(req.body);
-        
-        for (i=0;i<friends.length;i++) {
-            // console.log(user.scores[i])
+
+        for (i = 0; i < friends.length; i++) {
+            
+            
+            console.log(user.scores)
             console.log(friends[i].scores)
             let differences = 0
-            
-            for (x=0; x<user.scores.length; x++) {
+
+            for (x = 0; x < user.scores.length; x++) {
                 differences += Math.abs(user.scores[x] - friends[i].scores[x])
                 console.log(differences)
+
+                if (highScore < differences) {
+                    highscore = differences;
+                    bestMatch = friends[i]
+                }
             }
-            
-            if (highScore < differences) {
-                highscore = differences;
-                bestMatch = friends[i]
-            }    
         }
         friends.push(user);
         console.log(bestMatch)
         res.json(bestMatch)
     });
 
-    
+
 };

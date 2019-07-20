@@ -36,7 +36,7 @@
             <div class="mb-3">
                 <h5>Question 1</h5>
                 <p>I make friends easily.</p>
-                <select class="rounded surveyAnswer" id="question_1">
+                <select class="rounded surveyAnswer" id="questionOne">
                     <option hidden disabled selected value>-- Select An Option --</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -170,6 +170,7 @@
             event.preventDefault();
             let profile = {}
             let answers = [];
+            let numericAnwers = [];
 
             let name = $("#nameInput").val();
             let photo = $("#photoInput").val();
@@ -202,7 +203,12 @@
             answers.push(q9);
             answers.push(q10);
 
-            console.log(answers)
+            // for (i=0;i<answers.length;i++){
+            //     let num = parseInt(answers[i])
+            //     numericAnwers.push(num)
+            // }
+
+            // // console.log(numericAnwers)
 
             profile.name = name;
             profile.photo = photo;
