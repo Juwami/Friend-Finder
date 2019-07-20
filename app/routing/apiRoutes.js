@@ -16,12 +16,13 @@ module.exports = function (app) {
         // console.log(req.body);
         
         for (i=0;i<friends.length;i++) {
-            console.log(user.scores[i])
-            // console.log(friends[i].scores)
+            // console.log(user.scores[i])
+            console.log(friends[i].scores)
             let differences = 0
             
-            for (x=0; x<userProfile.scores.length; x++) {
-                differences += Math.abs(userProfile.scores[i] - friends.scores[i])
+            for (x=0; x<user.scores.length; x++) {
+                differences += Math.abs(user.scores[x] - friends[i].scores[x])
+                console.log(differences)
             }
             
             if (highScore < differences) {
