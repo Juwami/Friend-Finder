@@ -17,7 +17,6 @@ module.exports = function (app) {
 
         for (i = 0; i < friends.length; i++) {
             
-            
             console.log(user.scores)
             console.log(friends[i].scores)
             let differences = 0
