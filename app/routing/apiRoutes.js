@@ -9,28 +9,31 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         console.log(req.body)
         let user = req.body
-        let bestMatch = null;
-        let highScore = 0;
-
-        // Console what was inputed
-        // console.log(req.body);
 
         for (i = 0; i < friends.length; i++) {
-            
+            let bestMatch = null;
+            let highScore = 0;
             console.log(user.scores)
             console.log(friends[i].scores)
-            let differences = 0
 
-            for (x = 0; x < user.scores.length; x++) {
+            for (x = 0; x < friends[x].scores.length; x++) {
+                let differences = 0
                 differences += Math.abs(user.scores[x] - friends[i].scores[x])
-                console.log(differences)
 
-                if (highScore < differences) {
+                console.log(differences)
+                // console.log(friends[i])
+                // console.log(user.scores)
+
+
+                if (highScore < differences || bestMatch === null) {
                     highscore = differences;
                     bestMatch = friends[i]
                 }
             }
         }
+
+        console.log(highscore)
+
         friends.push(user);
         console.log(bestMatch)
         res.json(bestMatch)
