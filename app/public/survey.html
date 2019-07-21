@@ -16,9 +16,19 @@
     <!-- Bootstraps JQuery -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- Personal Style Sheet -->
-    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
+
+<style>
+    .modal-backdrop {
+        opacity: 0.4;
+    }
+
+    #friend-pic {
+        height: 250px;
+        width: auto;
+    }
+</style>
 
 <body>
 
@@ -163,17 +173,17 @@
         </form>
 
         <!-- Modal -->
-        <div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        <div class="modal" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Best Match</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-center">
                         <h2 id="friend-name"></h2>
                         <img id="friend-pic" src="">
                     </div>
@@ -192,14 +202,14 @@
 
     </main>
 
-    <script>
+    <script type="text/javascript">
         let friendName = $("#friend-name");
         let friendPic = $("#friend-pic");
         let resModal = $("#responseModal");
 
         resModal.modal('hide')
 
-        $("#submitBtn").click(function (event) {
+        $("#submitBtn").on('click', function (event) {
             event.preventDefault();
             let profile = {}
             let answers = [];
@@ -244,11 +254,13 @@
 
             $.post("/api/friends", profile, function (response) {
 
-                // console.log(response)
-                // if (response) {
-                //     friendName.text(response.name)
-                //     friendPic.attr("src", response.photo)
-                // }
+                console.log(response)
+                console.log(response.name)
+                console.log(response.photo)
+                if (response) {
+                    friendName.text(response.name)
+                    friendPic.attr("src", response.photo)
+                }
                 $("#responseModal").modal("toggle");
             })
 

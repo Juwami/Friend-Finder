@@ -11,6 +11,10 @@ app.use(express.json());
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
+app.use("/images", express.static(__dirname + '/app/data/images/'))
+
+console.log(__dirname)
+
 app.listen(PORT, function() {
     console.log("App is listening on PORT", PORT)
 })
