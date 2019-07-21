@@ -1,0 +1,8 @@
+.modal-backdrop {
+    opacity: 0.4 !important;
+}
+
+#friend-pic {
+    height: 250px;
+    width: auto;
+}
