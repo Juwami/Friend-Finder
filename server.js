@@ -11,7 +11,7 @@ app.use(express.json());
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
-app.use("/images", express.static(__dirname + '/app/data/images/'))
+app.use("/images", express.static(__dirname + '/appdata/images/'))
 
 console.log(__dirname)
 
