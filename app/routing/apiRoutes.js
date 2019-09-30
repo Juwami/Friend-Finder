@@ -17,7 +17,7 @@ module.exports = function (app) {
             console.log(friends[i].scores)
             let differences = 0
 
-            for (x = 0; x < friends[x].scores.length; x++) {
+            for (x = 0; x < friends[i].scores.length; x++) {
                 differences += Math.abs(user.scores[x] - friends[i].scores[x])
 
                 // console.log(differences)
